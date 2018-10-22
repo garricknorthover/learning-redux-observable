@@ -1,4 +1,6 @@
-An exercise in converting react component state to a redux store
-Also learning how to use Jest as  tool for TDD
+
 
 # learning-redux-observable
+
+excercise in taking existing redux todos and adding rxjs to it
+and all that kind of stuff
