@@ -1,4 +1,4 @@
-import { SET_TODO, ADD_TODO, DELETE_TODO } from './actionTypes'
+import { SET_TODO, ADD_TODO, DELETE_TODO, SET_MESSAGE } from './actionTypes'
 
 export const setTodo = todo => ({
   type: SET_TODO,
@@ -12,4 +12,9 @@ export const addTodo = (todo, date) => ({
 export const deleteTodo = date => ({
   type: DELETE_TODO,
   date
+})
+
+export const setMessage = text => ({
+  type: SET_MESSAGE,
+  text
 })

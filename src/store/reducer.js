@@ -1,4 +1,4 @@
-import { ADD_TODO, SET_TODO, DELETE_TODO } from './actionTypes'
+import { ADD_TODO, SET_TODO, DELETE_TODO, SET_MESSAGE } from './actionTypes'
 import { combineReducers } from 'redux'
 
 export function todos (state = [], action) {
@@ -28,10 +28,19 @@ export function formData (state = { todo: '' }, action) {
       return state
   }
 }
+export function message (state = { message: '' }, action) {
+  switch (action && action.type) {
+    case SET_MESSAGE:
+      return { ...state, text: action.text }
+    default:
+      return state
+  }
+}
 
 const reducer = combineReducers({
   todos,
-  formData
+  formData,
+  message
 })
 
 export default reducer
