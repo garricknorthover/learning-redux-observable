@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo, deleteTodo, setTodo } from '../store/actions'
 
-const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo }) => (
+const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo, message }) => (
   <div>
   
     <form
@@ -19,6 +19,7 @@ const TodoList = ({ addTodo, deleteTodo, todos, setTodo, todo }) => (
       />
       <input type='submit' value='Add' />
     </form>
+    {message}
 
     <ul>
       {todos.map(todo => (
@@ -39,7 +40,8 @@ const mapDispatchToProps = {
 const mapStateToProps = state => {
   return {
     todos: state.todos,
-    todo: state.formData.todo
+    todo: state.formData.todo,
+    message: state.message.text
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

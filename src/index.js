@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable';
-import someEpic from './epics'
+import epica from './epics'
 import reducer  from './store'
 
 const epicMiddleware = createEpicMiddleware();
@@ -21,7 +21,7 @@ const store = createStore(reducer,
   )
 );
 
-epicMiddleware.run(someEpic);
+epicMiddleware.run(epica);
 
 
 render(
