@@ -1,23 +1,23 @@
-import { filter, mapTo, delay } from 'rxjs/operators'
+import { mapTo, delay } from 'rxjs/operators'
 import { ofType } from 'redux-observable';
 import { combineEpics } from 'redux-observable';
 
-const someEpic = action$ => action$.pipe(
-    filter(action => action.type === 'SET_TODO'),
+const enteringTextEpic = action$ => action$.pipe(
+    ofType('SET_TODO'),
     delay(600),
     mapTo({ type: 'SET_MESSAGE', text: 'you are entering text what what!' }),
     
   );
   
-  const message = action$ => action$.pipe(
-    ofType('SET_MESSAGE'),
+  const notEnteringTextEpic = action$ => action$.pipe(
+    ofType(!'SET_TODO'),
     delay(2000),
     mapTo({ type: 'SET_MESSAGE', text: 'not now'})
   )
 
 const epica = combineEpics(
-  someEpic,
-  message
+  enteringTextEpic,
+  notEnteringTextEpic
 );
 
 export default epica
