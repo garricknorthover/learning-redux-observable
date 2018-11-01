@@ -29,6 +29,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "jest-marbles": "^2.0.0",
     "rxjs-marbles": "^4.3.1"
   }
 }
