@@ -13,7 +13,7 @@ const enteringTextEpic = action$ =>
   action$.pipe(
     ofType('SET_MESSAGE'),
     debounce(() => timer(600)),
-    mapTo({ type: 'SET_MESSAGE', text: 'now you are not' }),
+    mapTo({ type: 'SET_MESSAGE', text: 'now you are not' })
   )      
 
 const epica = combineEpics(enteringTextEpic, messageEpic)
